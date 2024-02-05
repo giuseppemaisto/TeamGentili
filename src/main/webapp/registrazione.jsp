@@ -25,13 +25,17 @@
 			<label>E-Mail:</label><input id='email' type="text" name='email'>
 		</div>
 		<div style='margin-top: 10px'>
-			<label>Numero Telefono:</label> <input id='numeroTelefono'
-				type="text" name='numeroTelefono'></input>
+			<label>Numero Telefono:</label> <input id='numero_telefono'
+				type="text" name='numero_telefono'></input>
 		</div>
 		<div style='margin-top: 10px'>
-			<label>Password:</label> <input id='password'
-				type="text" name='password'></input>
+			<label>Indirizzo:</label> <input id='indirizzo'
+				type="text" name='indirizzo'></input>
 		</div>
+		<div style='margin-top: 10px'>
+			<label>Password:</label> <input id='psw' type="text"
+					name='psw'></input>
+			</div>
 			<div style='margin-top: 10px'>
 			<label>Conferma Password:</label> <input id='confermaPassword'
 				type="text" name='confermaPassword'></input>

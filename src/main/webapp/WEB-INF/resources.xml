@@ -3,7 +3,7 @@
 <Resource id="connessione_db_web" type="DataSource">
     JdbcDriver	com.mysql.cj.jdbc.Driver
     JdbcUrl	jdbc:mysql://localhost:3306/ecommerce_manga
-    UserName	user
-    Password	Root1234!
+    UserName	root
+    Password	Root1234!@
 </Resource>
 </tomee>
