@@ -1,3 +1,354 @@
 Read.me
 
 test_readME
+
+
+// Classe Java per la tabella UTENTE
+@Entity
+@Table(name = "UTENTE")
+public class Utente implements Serializable {
+
+    // Attributi privati
+    @Id
+    @Column(name = "utenteID")
+    private int userId;
+
+    @Column(name = "nome")
+    private String nome;
+
+    @Column(name = "cognome")
+    private String cognome;	
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "numero_telefono")
+    private String numero_telefono;
+
+    @Column(name = "indirizzo")
+    private String indirizzo;
+
+    @Column(name = "psw")
+    private String psw;
+
+                                       
+    @OneToOne(mappedBy = "utente")                    // Relazioni con altre classi
+    private Carrello carrello;
+
+    @ManyToMany
+    @JoinTable(name = "CarteUtente",
+        joinColumns = @JoinColumn(name = "utenteID"),
+        inverseJoinColumns = @JoinColumn(name = "cartaID"))
+    private Set<Carte> carte;
+
+    @OneToMany(mappedBy = "utente")
+    private Set<Ordine> ordini;
+
+                                    
+    public class Utente() {           
+
+
+    public class Utente(int utenteId, String nome, String cognome, String email, String numero_telefono, String indirizzo, String psw) {
+        this.utenteId = utenteId;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.numero_telefono = numero_telefono;
+        this.indirizzo = indirizzo;
+        this.psw = psw;
+    }
+
+    // Getter e setter per gli attributi
+
+
+    public int getUtenteId() {
+        return utenteId;
+    }
+
+    public void setUtenteId(int utenteId) {
+        this.utenteId = utenteId;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNumero_telefono() {
+        return numero_telefono;
+    }
+
+    public void setNumero_telefono(String numero_telefono) {
+        this.numero_telefono = numero_telefono;
+    }
+
+    public String getIndirizzo() {
+        return indirizzo;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
+
+    public String getPsw() {
+        return psw;
+    }
+
+    public void setPsw(String psw) {
+        this.psw = psw;
+    }
+
+    
+    public Carrello getCarrello() {     // Getter e setter per le relazioni
+        return carrello;
+    }
+
+    public void setCarrello(Carrello carrello) {
+        this.carrello = carrello;
+    }
+
+    public Set<Carte> getCarte() {
+        return carte;
+    }
+
+    public void setCarte(Set<Carte> carte) {
+        this.carte = carte;
+    }
+
+    public Set<Ordine> getOrdini() {
+        return ordini;
+    }
+
+    public void setOrdini(Set<Ordine> ordini) {
+        this.ordini = ordini;
+    }
+
+                                      // Metodi equals, hashCode e toString
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Utente)) return false;
+        Utente utente = (Utente) o;
+        return utenteId == utente.utenteId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId);
+    }
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+
+                "utenteId=" + utenteId +
+
+                ", nome='" + nome + '\'' +
+
+                ", cognome='" + cognome + '\'' +
+
+                ", email='" + email + '\'' +
+
+                ", numero_telefono='" + numero_telefono + '\'' +
+
+                
+                ", indirizzo='" + indirizzo + '\'' +
+
+                ", psw='" + psw + '\'' +
+
+                '}';
+    }
+}
+
+
+
+// Classe Java tabella CARRELLO
+
+@Entity
+@Table(name = "CARRELLO")
+public class Carrello implements Serializable {
+
+    // Attributi privati
+    @Id
+    @Column(name = "carrelloID")
+    private int carrelloId;
+
+    // Relazioni con altre classi
+    @OneToOne
+    @JoinColumn(name = "utenteID")
+    private Utente utente;
+
+    @OneToMany(mappedBy = "carrello")
+    private Set<CarrelloProdotti> carrelloProdotti;
+
+    // Costruttore vuoto
+    public Carrello() {
+    }
+
+    
+    public Carrello(int carrelloId, Utente utente) {
+        this.carrelloId = carrelloId;
+        this.utente = utente;
+    }
+
+    // Getter e setter per gli attributi
+    public int getCarrelloId() {
+        return carrelloId;
+    }
+
+    public void setCarrelloId(int carrelloId) {
+        this.carrelloId = carrelloId;
+    }
+
+    // Getter e setter per le relazioni
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+    }
+
+    public Set<CarrelloProdotti> getCarrelloProdotti() {
+        return carrelloProdotti;
+    }
+
+    public void setCarrelloProdotti(Set<CarrelloProdotti> carrelloProdotti) {
+        this.carrelloProdotti = carrelloProdotti;
+    }
+
+    // Metodi equals, hashCode e toString
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Carrello)) return false;
+        Carrello carrello = (Carrello) o;
+        return carrelloId == carrello.carrelloId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carrelloId);
+    }
+
+    @Override
+    public String toString() {
+        return "Carrello{" +
+                "carrelloId=" + carrelloId +
+                '}';
+    }
+}
+
+
+
+
+// Classe Java tabella PRODOTTO
+
+@Entity
+@Table(name = "PRODOTTO")
+public class Prodotto implements Serializable {
+
+    // Attributi privati
+    @Id
+    @Column(name = "prodottoID")
+    private int prodottoId;
+
+    @Column(name = "nomeProdotto")
+    private String nomeProdotto;
+
+    // Relazioni con altre classi
+    @OneToMany(mappedBy = "prodotto")
+    private Set<CarrelloProdotti> carrelloProdotti;
+
+    
+    public Prodotto() {
+    }
+
+   
+    public Prodotto(int prodottoId, String nomeProdotto) {
+        this.prodottoId = prodottoId;
+        this.nomeProdotto = nomeProdotto;
+    }
+
+    // Getter e setter per gli attributi
+    public int getProdottoId() {
+        return prodottoId;
+    }
+
+    public void setProdottoId(int prodottoId) {
+        this.prodottoId = prodottoId;
+    }
+
+    public String getNomeProdotto() {
+        return nomeProdotto;
+    }
+
+    public void setNomeProdotto(String nomeProdotto) {
+        this.nomeProdotto = nomeProdotto;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+     
+    public Double getPrezzo() {
+        return prezzo;
+    }
+
+    public void setPrezzo(Double prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
+
+
+    // Getter e setter per le relazioni
+
+    public Set<CarrelloProdotti> getCarrelloProdotti() {
+        return carrelloProdotti;
+    }
+
+    public void setCarrelloProdotti(Set<CarrelloProdotti> carrelloProdotti) {
+        this.carrelloProdotti = carrelloProdotti;
+    }
+
+
+    @Override
+    public boolean equals(Object o)
