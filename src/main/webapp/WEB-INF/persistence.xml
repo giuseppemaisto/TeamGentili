@@ -1,33 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence
-	xmlns="https://java.sun.com/xml/ns/persistence_2_0.xsd" version="2.0"
-	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="https://java.sun.com/xml/ns/persistence
-  https://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="ecommerce_manga"
-		transaction-type="RESOURCE_LOCAL">
+<persistence 
+xmlns="http://java.sun.com/xml/ns/persistence_2_0.xsd" version="2.0">
+	<persistence-unit name="ecommerce_manga">
 		<jta-data-source>connessione_db_web</jta-data-source>
-		<class>Utente</class>
-		<class>Carrello</class>
-		<class>Carte</class>
-		<class>Prodotto</class>
-		<class>Ordine</class>
 		<properties>
-			<property name="jacarta.persistence.jdbc.driver"
-				value="com.mysql.jdbc.Driver" />
-			<property name="jacarta.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/ecommerce" />
-			<property name="jacarta.persistence.jdbc.user" value="root" />
-			<property name="jacarta.persistence.jdbc.password"
-				value="password" />
-
-			<!-- trova tutti gli oggetti @Entity -->
+		    	<!-- trova tutti gli oggetti @Entity  -->
 			<property name="openejb.jpa.auto-scan" value="true" />
-			<property name="openjpa.RuntimeUnenhancedClasses"
-				value="supported" />
-			<!-- Aggiunge e collega le FK per noi, con l'uso di JPA -->
-			<property name="openjpa.jdbc.SynchronizeMappings"
-				value="buildSchema(ForeignKeys=true)" />
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
+			<!-- Aggiunge e collega le FK per noi, con l'uso di JPA         -->
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
 		</properties>
 	</persistence-unit>
 </persistence>
