@@ -13,19 +13,20 @@ public class UtenteDao implements IUtenteDao {
 
 	@Override
 	public void registrazione(Utente utente) {
-		StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
-		String passwordCriptata = encryptor.encryptPassword(utente.getPsw());
-		utente.setPsw(passwordCriptata);
+//		StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+//		String passwordCriptata = encryptor.encryptPassword(utente.getPsw());
+//		utente.setPsw(passwordCriptata);
 		db.persist(utente);
 	}
 
 	@Override
-	public void login(Utente utente) {
+	public boolean login(Utente utente) {
 		 if(db.contains(utente)) {
-			 
+			 String sql="Select psw from utente where email=?";
+			 if(utente.getPsw()==sql);
+			 return true;}
+		 else {return false;}
 		 }
-		 
-	}
 
 	@Override
 	public boolean logout() {

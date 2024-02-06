@@ -7,5 +7,5 @@ public interface IUtenteDao {
 
     boolean logout();
 
-	void login(Utente utente);
+	boolean login(Utente utente);
 }
