@@ -1,15 +1,22 @@
 package it.accenture.ecommerce.classi;
-
 import java.io.Serializable;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Utente")
+@Table(name = "utente")
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
+
+	private Carrello carrello;
 	
-	
-	
+	@OneToOne (mappedBy="utente")
+	public Carrello getCarrello() {
+		return carrello;
+	}
+
+	public void setCarrello(Carrello carrello) {
+		this.carrello = carrello;
+	}
 
 	public Utente() {
 		super();
@@ -106,5 +113,8 @@ public class Utente implements Serializable {
 	public void setPsw(String psw) {
 		this.psw = psw;
 	}
+	
+	
+		
+	}
 
-}

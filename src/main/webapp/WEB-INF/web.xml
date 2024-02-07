@@ -6,22 +6,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>ServletRegistrazione</display-name>
-    <servlet-name>ServletRegistrazione</servlet-name>
-    <servlet-class>it.accenture.ecommerce.servlet.ServletRegistrazione</servlet-class>
+    <display-name>ServletProdotto</display-name>
+    <servlet-name>ServletProdotto</servlet-name>
+    <servlet-class>it.accenture.ecommerce.servlet.ServletProdotto</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletRegistrazione</servlet-name>
-    <url-pattern>/ServletRegistrazione</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletLogin</display-name>
-    <servlet-name>ServletLogin</servlet-name>
-    <servlet-class>it.accenture.ecommerce.servlet.ServletLogin</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletLogin</servlet-name>
-    <url-pattern>/ServletLogin</url-pattern>
+    <servlet-name>ServletProdotto</servlet-name>
+    <url-pattern>/ServletProdotto</url-pattern>
   </servlet-mapping>
 </web-app>
