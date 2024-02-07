@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+body {
+    background-image: url("sfondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-color: rgba(76, 175, 80, 0.3);
+    min-height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-home{
+	  background-color: rgb(170, 41, 59);
+	  margin-bottom:2rem;
+}
+.div-form {
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6); 
+    padding: 20px;
+}
+.invia,.accedi{
+    background-color: rgb(170, 41, 59);
+    border:1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}

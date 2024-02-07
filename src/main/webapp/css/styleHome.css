@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+/*Classe per il colore alla navbar*/
+.nav-home{
+	  background-color: rgb(170, 41, 59);
+}
+
+/*Classe del bottone che porta alla login */
+.bottone-carousel{
+	background-color: rgb(170, 41, 59);
+	padding:12px;
+	color:white;
+}
+
+/*Classe che al passaggio del mouse mi da queste proprietà che contiene il padding(spazio tra il contenuto e il contorno del contenitore*/
+.bottone-carousel:hover{
+	background-color: rgb(170, 41, 59);
+	padding:12px;
+	color:white;
+}
+
+/*Classi annidate per l'altezza dell'immagine*/
+.carousel-item{
+	img{
+		height:90vh;
+	};
+}
+
+/*Classe per inserire la scritta sopra al form*/
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+    
+    h1{
+	font-size:150px;  
+	margin-bottom:3rem;  
+    }
+    
+    p{
+    font-weight: bold;}
+    
+}
+/*footer*/
+
+footer{
+height:200px;
+	background-color: rgb(170, 41, 59);
+}
+
