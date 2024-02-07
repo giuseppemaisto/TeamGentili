@@ -11,30 +11,18 @@ public class Prodotto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	
-	
 	private Integer prodottoId;
 	private String nomeProdotto;
 	private String descrizione;
 	private Double prezzo;
 	private String categoria;
 	private String immagine;
-	private Carrello carrello;
-	
-	public void setCarrello(Carrello carrello) {
-		this.carrello=carrello;
-	}
-	
-	//più prodotti in un solo carrello
-	@ManyToOne 
-	public Carrello getCarrello() {
-		return carrello;
-	}
-	
+
 	public Prodotto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Prodotto(String nomeProdotto, String descrizione, Double prezzo, String categoria, String immagine) {
 		super();
 		this.nomeProdotto = nomeProdotto;
@@ -43,47 +31,59 @@ public class Prodotto implements Serializable {
 		this.categoria = categoria;
 		this.immagine = immagine;
 	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	public Integer getProdottoId() {
 		return prodottoId;
 	}
-	@Column(name="nome_prodotto")
+
+	@Column(name = "nome_prodotto")
 	public String getNomeProdotto() {
 		return nomeProdotto;
 	}
-	@Column (name="descrizione")
+
+	@Column(name = "descrizione")
 	public String getDescrizione() {
 		return descrizione;
 	}
-	@Column (name="prezzo")
+
+	@Column(name = "prezzo")
 	public Double getPrezzo() {
 		return prezzo;
 	}
-	@Column (name="categoria")
+
+	@Column(name = "categoria")
 	public String getCategoria() {
 		return categoria;
 	}
-	@Column (name="immagine")
+
+	@Column(name = "immagine")
 	public String getImmagine() {
 		return immagine;
 	}
+
 	public void setProdottoId(Integer prodottoId) {
 		this.prodottoId = prodottoId;
 	}
+
 	public void setNomeProdotto(String nomeProdotto) {
 		this.nomeProdotto = nomeProdotto;
 	}
+
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+
 	public void setPrezzo(Double prezzo) {
 		this.prezzo = prezzo;
 	}
+
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+
 	public void setImmagine(String immagine) {
 		this.immagine = immagine;
 	}
@@ -104,9 +104,5 @@ public class Prodotto implements Serializable {
 		Prodotto other = (Prodotto) obj;
 		return Objects.equals(prodottoId, other.prodottoId);
 	}
-	
-	
-	
-
 
 }

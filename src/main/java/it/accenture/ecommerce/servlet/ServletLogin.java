@@ -44,7 +44,7 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		String email = request.getParameter("email");
 		String psw = request.getParameter("psw");
 		Utente utente = new Utente();
@@ -53,6 +53,8 @@ public class ServletLogin extends HttpServlet {
 		boolean result = utenteDao.login(utente);
 		if (result) {
 			request.getSession(true).setAttribute(Chiavi.CHIAVE_LOGIN, email);
+			request.getRequestDispatcher("/ServletProdotto").include(request, response);
+			
 			request.getRequestDispatcher("prodotti.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("registrazione.jsp").forward(request, response);

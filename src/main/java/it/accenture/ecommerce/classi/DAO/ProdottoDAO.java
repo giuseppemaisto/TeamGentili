@@ -2,6 +2,7 @@ package it.accenture.ecommerce.classi.DAO;
 
 import java.util.List;
 
+
 import it.accenture.ecommerce.classi.Prodotto;
 import it.accenture.ecommerce.interfaces.IProdottoDAOLocal;
 import jakarta.ejb.LocalBean;
@@ -10,9 +11,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 
-/**
- * Session Bean implementation class ProdottoDAO
- */
 @Stateless
 @LocalBean
 public class ProdottoDAO implements IProdottoDAOLocal {

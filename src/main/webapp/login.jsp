@@ -35,7 +35,7 @@
 					<div class="mb-3">
 						<label for="exampleDropdownFormEmail1"
 							class="d-flex justify-content-start mb-2">Indirizzo mail</label>
-						<input type="email" class="form-control" id="mail" name="mail"
+						<input type="email" class="form-control" id="email" name="email"
 							placeholder="inserisci la tua mail">
 					</div>
 					<div class="mb-3">

@@ -1,10 +1,11 @@
 package it.accenture.ecommerce.interfaces;
-import java.util.ArrayList;
-import java.util.List;
-
 import it.accenture.ecommerce.classi.Prodotto;
 import it.accenture.ecommerce.classi.Utente;
+
+
+import java.util.List;
 import jakarta.ejb.Local;
+
 @Local
 public interface ICarrelloDAOLocal {
 		

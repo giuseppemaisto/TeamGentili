@@ -20,7 +20,7 @@ import it.accenture.ecommerce.interfaces.ICarrelloDAOLocal;
 import it.accenture.ecommerce.interfaces.IProdottoDAOLocal;
 import it.accenture.ecommerce.interfaces.IUtenteDAOLocal;
 
-
+@WebServlet ("/ServletProdotto")
 public class ServletProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB

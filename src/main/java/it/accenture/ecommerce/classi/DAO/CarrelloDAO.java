@@ -1,5 +1,4 @@
 package it.accenture.ecommerce.classi.DAO;
-import java.util.ArrayList;
 import java.util.List;
 
 import it.accenture.ecommerce.classi.Carrello;

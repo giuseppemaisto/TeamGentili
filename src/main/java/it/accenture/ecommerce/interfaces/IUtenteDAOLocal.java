@@ -1,6 +1,7 @@
 package it.accenture.ecommerce.interfaces;
 
 import it.accenture.ecommerce.classi.Utente;
+
 import jakarta.ejb.*;
 
 @Local

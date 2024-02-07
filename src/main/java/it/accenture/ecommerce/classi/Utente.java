@@ -7,16 +7,16 @@ import jakarta.persistence.*;
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Carrello carrello;
+	//private Carrello carrello;
 	
-	@OneToOne (mappedBy="utente")
-	public Carrello getCarrello() {
+//	@OneToOne (mappedBy="utente")S
+	/*public Carrel9lo getCarrello() {
 		return carrello;
 	}
 
 	public void setCarrello(Carrello carrello) {
 		this.carrello = carrello;
-	}
+	}*/
 
 	public Utente() {
 		super();
@@ -39,7 +39,7 @@ public class Utente implements Serializable {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	@Column(name = "utenteID")
+	@Column(name = "utenteId")
 	public Integer getUtenteId() {
 		return utenteId;
 	}

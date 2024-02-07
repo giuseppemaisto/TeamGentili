@@ -4,14 +4,4 @@
   <welcome-file-list>
     <welcome-file>home.html</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>ServletProdotto</display-name>
-    <servlet-name>ServletProdotto</servlet-name>
-    <servlet-class>it.accenture.ecommerce.servlet.ServletProdotto</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletProdotto</servlet-name>
-    <url-pattern>/ServletProdotto</url-pattern>
-  </servlet-mapping>
 </web-app>

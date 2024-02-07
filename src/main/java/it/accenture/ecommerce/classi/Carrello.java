@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Carrello")
+@Table(name = "carrello")
 public class Carrello implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,7 +19,7 @@ public class Carrello implements Serializable {
 	private ArrayList<Prodotto> carrelloProdotti;
 	private Utente utente;
 
-	@OneToOne(mappedBy = "carrello")
+//	@OneToOne(mappedBy = "carrello")
 	public Utente getUtente() {
 		return utente;
 	}
@@ -31,7 +31,7 @@ public class Carrello implements Serializable {
 		return carrelloId;
 	}
 
-	@OneToMany(mappedBy = "carrello")
+//	@OneToMany(mappedBy = "carrello")
 	public ArrayList<Prodotto> getCarrelloProdotti() {
 		return carrelloProdotti;
 	}
@@ -40,7 +40,7 @@ public class Carrello implements Serializable {
 		this.carrelloId = carrelloId;
 	}
 
-	@OneToMany(mappedBy = "carrello")
+//	@OneToMany(mappedBy = "carrello")
 	public void setCarrelloProdotti(ArrayList<Prodotto> carrelloProdotti) {
 		this.carrelloProdotti = carrelloProdotti;
 	}
@@ -74,9 +74,5 @@ public class Carrello implements Serializable {
 		this.utente = utente;
 
 	}
-
-//	public void aggiungi(Utente u, Prodotto p) {
-//		
-//	}
 
 }
