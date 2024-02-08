@@ -1,3 +1,7 @@
+body{
+	 background-image: url('images/luffy.jpg');
+}
+
 .container{
 	max-width:1200px;
 	margin:0 auto;
@@ -11,4 +15,37 @@
 .col-3{
 	flex:1 0 25%;
 	margin:10px;
+}
+
+
+.nav-home{
+	  background-color: rgb(170, 41, 59);
+	  margin-bottom:2rem;
+}
+
+.titolo, .card-title{
+	color:rgb(170, 41, 59);
+}
+
+.card:hover {
+	border: 2px solid rgb(170, 41, 59);
+}
+.descrizione{
+	display:none;
+	
+}
+
+.descrizione:hover{
+	display:block;
+	
+}
+
+
+.add, .cerca{
+	  background-color: rgb(170, 41, 59);
+	  color:white;
+}
+.add:hover{
+	  background-color: rgb(170, 41, 59);
+	  color:white;
 }
