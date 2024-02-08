@@ -7,7 +7,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import it.accenture.ecommerce.classi.Carrello;
 import it.accenture.ecommerce.classi.Utente;
+import it.accenture.ecommerce.classi.DAO.CarrelloDAO;
+import it.accenture.ecommerce.interfaces.ICarrelloDAOLocal;
 import it.accenture.ecommerce.interfaces.IUtenteDAOLocal;
 
 @WebServlet("/ServletRegistrazione")
@@ -15,6 +19,8 @@ public class ServletRegistrazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
 	private IUtenteDAOLocal utenteDao;
+	@EJB
+	private ICarrelloDAOLocal carrelloDao;
 
 	public ServletRegistrazione() {
 		super();
@@ -29,8 +35,11 @@ public class ServletRegistrazione extends HttpServlet {
 		String indirizzo = request.getParameter("indirizzo");
 		String psw = request.getParameter("psw");
 
-		Utente utente = new Utente(null, nome, cognome, email, numero_telefono, indirizzo, psw);
+		Utente utente = new Utente(nome, cognome, email, numero_telefono, indirizzo, psw);
 		utenteDao.registrazione(utente);
+		Carrello carrello = new Carrello();
+		carrello.setUtente(utente);
+		carrelloDao.creaCarrello(carrello);
 
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}

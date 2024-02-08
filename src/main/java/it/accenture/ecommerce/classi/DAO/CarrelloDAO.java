@@ -1,7 +1,9 @@
 package it.accenture.ecommerce.classi.DAO;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.accenture.ecommerce.classi.Carrello;
+import it.accenture.ecommerce.classi.CarrelloProdotto;
 import it.accenture.ecommerce.classi.Prodotto;
 import it.accenture.ecommerce.classi.Utente;
 import it.accenture.ecommerce.interfaces.ICarrelloDAOLocal;
@@ -40,9 +42,15 @@ public class CarrelloDAO implements ICarrelloDAOLocal {
 	}
 
 	@Override
-	public List<Prodotto> prendiTutto(Utente u) {
+	public List<CarrelloProdotto> prendiTutto(Utente u) {
 		Carrello c = u.getCarrello();
 		return c.getCarrelloProdotti();
+	}
+
+	@Override
+	public void creaCarrello(Carrello carrello) {
+		db.persist(carrello);
+		
 	}
 	
 

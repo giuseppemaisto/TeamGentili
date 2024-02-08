@@ -7,25 +7,15 @@ import jakarta.persistence.*;
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	//private Carrello carrello;
-	
-//	@OneToOne (mappedBy="utente")S
-	/*public Carrel9lo getCarrello() {
-		return carrello;
-	}
-
-	public void setCarrello(Carrello carrello) {
-		this.carrello = carrello;
-	}*/
+	private Carrello carrello; 
 
 	public Utente() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Utente(Integer utenteId, String nome, String cognome, String email, String indirizzo, String numero_telefono,
+	public Utente(String nome, String cognome, String email, String indirizzo, String numero_telefono,
 			String psw) {
-		this.utenteId = utenteId;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
@@ -112,6 +102,15 @@ public class Utente implements Serializable {
 
 	public void setPsw(String psw) {
 		this.psw = psw;
+	}
+
+	@OneToOne (mappedBy = "utente")
+	public Carrello getCarrello() {
+		return carrello;
+	}
+
+	public void setCarrello(Carrello carrello) {
+		this.carrello = carrello;
 	}
 	
 	

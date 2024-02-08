@@ -26,12 +26,12 @@ public class UtenteDAO implements IUtenteDAOLocal {
 	}
 
 	@Override
-	public boolean login(Utente utente) {
+	public boolean login(Utente utente, String psw) {
 		TypedQuery<String> query = db.createQuery("Select u.psw from Utente u where u.email=?1", String.class);
 		query.setParameter(1, utente.getEmail());
-		String utenteDB = query.getSingleResult();
+		String password = query.getSingleResult();
 		//il controllo mi restituisce un booleano, quindi non c'è bisogno di scrivere il codice dell'if
-		return (utenteDB != null && !utenteDB.isEmpty());
+		return (password != null && !password.isEmpty() && password.equals(psw));
 //		if (utenteDB != null && !utenteDB.isEmpty()) {
 //			//ENTRO CHE SONO REGISTRATO (email trovata)
 //			return true;

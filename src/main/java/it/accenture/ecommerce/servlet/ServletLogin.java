@@ -50,11 +50,10 @@ public class ServletLogin extends HttpServlet {
 		Utente utente = new Utente();
 		utente.setEmail(email);
 		utente.setPsw(psw);
-		boolean result = utenteDao.login(utente);
+		boolean result = utenteDao.login(utente, psw);
 		if (result) {
 			request.getSession(true).setAttribute(Chiavi.CHIAVE_LOGIN, email);
 			request.getRequestDispatcher("/ServletProdotto").include(request, response);
-			
 			request.getRequestDispatcher("prodotti.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("registrazione.jsp").forward(request, response);

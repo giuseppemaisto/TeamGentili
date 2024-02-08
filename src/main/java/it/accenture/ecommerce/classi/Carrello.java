@@ -1,7 +1,10 @@
 package it.accenture.ecommerce.classi;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -16,23 +19,24 @@ public class Carrello implements Serializable {
 
 	private Integer carrelloId;
 
-	private ArrayList<Prodotto> carrelloProdotti;
+	private List<CarrelloProdotto> carrelloProdotti;
 	private Utente utente;
 
-//	@OneToOne(mappedBy = "carrello")
+	@OneToOne
+	@JoinColumn(name="utenteId")
 	public Utente getUtente() {
 		return utente;
 	}
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	@Column(name = "carrelloID")
+	@Column(name = "carrelloId")
 	public Integer getCarrelloId() {
 		return carrelloId;
 	}
 
-//	@OneToMany(mappedBy = "carrello")
-	public ArrayList<Prodotto> getCarrelloProdotti() {
+	@OneToMany(mappedBy = "carrello")
+	public List<CarrelloProdotto> getCarrelloProdotti() {
 		return carrelloProdotti;
 	}
 
@@ -40,29 +44,40 @@ public class Carrello implements Serializable {
 		this.carrelloId = carrelloId;
 	}
 
-//	@OneToMany(mappedBy = "carrello")
-	public void setCarrelloProdotti(ArrayList<Prodotto> carrelloProdotti) {
+
+	public void setCarrelloProdotti(List<CarrelloProdotto> carrelloProdotti) {
 		this.carrelloProdotti = carrelloProdotti;
 	}
 
 	public void aggiungiProdotto(Prodotto p) {
-		if (carrelloProdotti == null) {
-			carrelloProdotti = new ArrayList<Prodotto>();
+		if(this.carrelloProdotti==null) {
+			this.carrelloProdotti=new ArrayList<>();
 		}
-		carrelloProdotti.add(p);
+		CarrelloProdotto c = new CarrelloProdotto();
+		c.setCarrello(this);
+		c.setProdotto(p);
+		c.setDataAggiunta(LocalDateTime.now());
+		this.carrelloProdotti.add(c);
 	}
 
-	public void rimuoviProdotto(Prodotto p) {
-		if (carrelloProdotti == null) {
-			carrelloProdotti = new ArrayList<Prodotto>();
-			return;
+	public CarrelloProdotto rimuoviProdotto(Prodotto p) {
+		if(this.carrelloProdotti==null) {
+			this.carrelloProdotti=new ArrayList<>();
+			return null;
 		}
-		carrelloProdotti.remove(p);
+		CarrelloProdotto tmp=null;
+		for(CarrelloProdotto c:this.carrelloProdotti) {
+			if(c.getCarrello().equals(this)&&c.getProdotto().equals(p)) {
+				tmp = c;
+			}
+		}
+		this.carrelloProdotti.remove(tmp);
+		return tmp;
 	}
 
 	public void clear() {
 		if (carrelloProdotti == null) {
-			carrelloProdotti = new ArrayList<Prodotto>();
+			carrelloProdotti = new ArrayList<CarrelloProdotto>();
 			return;
 		}
 		carrelloProdotti.clear();
@@ -74,5 +89,11 @@ public class Carrello implements Serializable {
 		this.utente = utente;
 
 	}
+
+	public void setUtente(Utente utente) {
+		this.utente = utente;
+	}
+	
+	
 
 }

@@ -21,8 +21,8 @@
 	<nav class="navbar  nav-home">
 	  <div class="container-fluid">
 	    <a class="navbar-brand text-white" href="home.html">Manga Shop</a>
-	    <div class="d-flex justify-content-between" >
-	    <a class="nav-link mx-2 text-white"></a>
+	    <div class="d-flex justify-content-between">
+	    <a href="<%=request.getContextPath()+"/ServletCarrello"%>" class="nav-link mx-2 text-white">Carrello</a>
 	     
 	    </div>
 	  </div>
@@ -36,7 +36,7 @@
       <input  oninput="searchByName()" class="form-control mr-3"  id="searchInput" type="search" placeholder="Cerca il tuo funko pop preferito" aria-label="Search">
      
     </form>
-
+<form action="<%=request.getContextPath()+"/ServletAggiungi"%>" method="Post" >
 		<div id="productContainer" class="row row-cols-1 row-cols-md-3 g-4 d-flex flex-wrap">
 		<%
 		List<Prodotto> listaProdotti = (List<Prodotto>) request.getAttribute(Chiavi.CHIAVE_LISTA_PRODOTTI);
@@ -54,11 +54,12 @@
 				
 					<div class="descrizione card-text"> <%=prodotto.getDescrizione()%></div>
 					<div class="card-body">
+					<input type="hidden" name="prodottoId" value="<%=prodotto.getProdottoId()%>">
 						<h4 class="card-title"><%=prodotto.getNomeProdotto()%></h4>
 						<p class="card-text"></p>
 						<h6><%=prodotto.getCategoria()%></h6>
 						<h5><%=prodotto.getPrezzo()%> &euro;</h5>
-						    <a href="#" class="btn add">Aggiungi al carrello</a>
+						    <button type="submit" onclick="alert('Elemento aggiunto correttamente')" class="btn add">Aggiungi al carrello</button>
 						
 					</div>
 				</div>
@@ -69,6 +70,7 @@
 			%>
 
 		</div>
+		</form>
 	</div>
 
 	<script
