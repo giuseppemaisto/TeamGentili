@@ -11,7 +11,7 @@
 <title>Carrello</title>
 </head>
 <body>
-<h1>><%List<CarrelloProdotto> listaCarrelloProdotti=(List<CarrelloProdotto>) request.getAttribute(Chiavi.CHIAVE_CARRELLO);
+<h1><%List<CarrelloProdotto> listaCarrelloProdotti=(List<CarrelloProdotto>) request.getAttribute(Chiavi.CHIAVE_CARRELLO);
 out.print(listaCarrelloProdotti.size());
 
 %></h1>
