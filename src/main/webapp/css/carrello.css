@@ -1,0 +1,20 @@
+
+@charset "UTF-8";
+
+
+.carrello{
+padding: 1rem 2rem 1rem 2rem;
+border-radius: 10px;
+border: 3px solid rgb(170, 41, 59);
+background-color: white;
+margin-top: 5rem;
+}
+
+img{
+    width: 150px;
+    border-radius: 10px;
+}
+
+.row-carrello{
+    border-bottom: 1px solid rgb(170, 41, 59);
+}

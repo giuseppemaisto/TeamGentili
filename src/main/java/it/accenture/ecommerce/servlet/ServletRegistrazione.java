@@ -40,6 +40,8 @@ public class ServletRegistrazione extends HttpServlet {
 		Carrello carrello = new Carrello();
 		carrello.setUtente(utente);
 		carrelloDao.creaCarrello(carrello);
+		utente.setCarrello(carrello);
+		utenteDao.aggiornaUtente(utente);
 
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}

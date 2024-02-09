@@ -16,5 +16,6 @@ public interface ICarrelloDAOLocal {
 	public void rimuovi(Utente u,Prodotto p);
 	public void svuota(Utente u);
 	public List<CarrelloProdotto> prendiTutto(Utente u);
+	Carrello prendiCarrelloByUtente(Utente u);
 	
 }

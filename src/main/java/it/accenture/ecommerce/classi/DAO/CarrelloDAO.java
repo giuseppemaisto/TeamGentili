@@ -11,6 +11,7 @@ import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 
 @Stateless
 @LocalBean
@@ -21,7 +22,7 @@ public class CarrelloDAO implements ICarrelloDAOLocal {
 
 	@Override
 	public void aggiungi(Utente u, Prodotto p) {
-		Carrello c = u.getCarrello();
+		Carrello c = this.prendiCarrelloByUtente(u);
 		c.aggiungiProdotto(p);
 		db.merge(c);
 	}
@@ -53,5 +54,12 @@ public class CarrelloDAO implements ICarrelloDAOLocal {
 		
 	}
 	
+	
+	@Override
+	public Carrello prendiCarrelloByUtente(Utente u) {
+		TypedQuery<Carrello> query = db.createQuery("SELECT c FROM Carrello c WHERE c.utente.utenteId=?1", Carrello.class);
+		query.setParameter(1, u.getUtenteId());
+		return query.getSingleResult();
+	}
 
 }

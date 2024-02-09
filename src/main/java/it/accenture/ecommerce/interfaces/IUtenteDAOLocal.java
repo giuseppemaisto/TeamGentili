@@ -24,4 +24,8 @@ public interface IUtenteDAOLocal {
 
 	public Utente prendiUtente(String email);
 
+
+
+	void aggiornaUtente(Utente utente);
+
 }

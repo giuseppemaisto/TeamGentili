@@ -69,5 +69,10 @@ public class UtenteDAO implements IUtenteDAOLocal {
 		Utente utenteDB = query.getSingleResult();
 		return utenteDB;
 	}
+	
+	@Override
+	public void aggiornaUtente(Utente utente) {
+		db.merge(utente);
+	}
 
 }

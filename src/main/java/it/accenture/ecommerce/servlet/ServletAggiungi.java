@@ -60,7 +60,7 @@ public class ServletAggiungi extends HttpServlet {
 		Utente u= utenteService.prendiUtente(email);
 		carrelloService.aggiungi(u, p);
 		
-		//request.getRequestDispatcher("carrello.jsp").forward(request, response);
+		request.getRequestDispatcher("/ServletProdotto").forward(request, response);
 	}
 
 }
